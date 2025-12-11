@@ -2,46 +2,55 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>책 요약 생성기</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Book Summary</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <h1 class="title">책 요약 생성기</h1>
 
   <div class="container">
+    <h1>📘 Book Summary</h1>
 
-    <label>책 제목</label>
-    <input id="titleInput" placeholder="" />
+    <div class="input-group">
+      <label>책 제목</label>
+      <input id="titleInput" placeholder="예: 해리포터">
+    </div>
 
-    <label>언어</label>
-    <select id="lang">
-      <option>한국어</option>
-      <option>영어</option>
-      <option>일본어</option>
-    </select>
+    <div class="input-group">
+      <label>언어</label>
+      <select id="lang">
+        <option value="한국어" selected>한국어</option>
+        <option value="English">English</option>
+      </select>
+    </div>
 
-    <label>톤</label>
-    <select id="tone">
-      <option>기본</option>
-      <option>친절함</option>
-      <option>간결함(짧고 명확하게)</option>
-      <option>재미있게</option>
-    </select>
+    <div class="input-group">
+      <label>문체</label>
+      <select id="tone">
+        <option value="기본 말투" selected>기본 말투</option>
+        <option value="부드럽게">부드럽게</option>
+        <option value="딱딱하게">딱딱하게</option>
+        <option value="재미있게">재미있게</option>
+      </select>
+    </div>
 
-    <label>요약 문장 수 100 이하 추천</label>
-    <input id="num" type="number" value="10" />
+    <div class="input-group">
+      <label>요약 문장 수 (최대 70)</label>
+      <input id="num" type="number" min="1" max="70" value="5">
+    </div>
 
     <button id="generateBtn">생성하기</button>
 
-    <h2>책 소개</h2>
-    <div id="intro" class="box"></div>
+    <div class="resultBox">
+      <h2>📖 소개</h2>
+      <p id="intro"></p>
+    </div>
 
-    <h2>요약</h2>
-    <div id="summary" class="box"></div>
-
+    <div class="resultBox">
+      <h2>📝 요약</h2>
+      <p id="summary"></p>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

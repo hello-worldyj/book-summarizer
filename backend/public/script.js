@@ -7,7 +7,7 @@ document.getElementById("generateBtn").addEventListener("click", async () => {
   const intro = document.getElementById("intro");
   const summary = document.getElementById("summary");
 
-  if (!title) return alert("책 제목을 버리지 마세요 ㅠ");
+  if (!title) return alert("책 제목이 없습니다");
 
   intro.innerText = "불러오는 중...";
   summary.innerText = "생성 중...";
@@ -20,7 +20,7 @@ document.getElementById("generateBtn").addEventListener("click", async () => {
 
   const data = await res.json();
 
-  intro.innerText = data.intro || "소개가 있엇는데 없어요";
-  summary.innerText = data.summary || "요약 생성 실패! ㅋ 와 ㅊㅊ";
+  intro.innerText = data.intro || "다시 시도 해주십시오";
+  summary.innerText = data.summary || "요약 생성 실패!";
 });
 

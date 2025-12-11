@@ -24,8 +24,8 @@ app.post("/api/summary", async (req, res) => {
 
     if (!title) {
       return res.json({
-        intro: "책 재목은여?",
-        summary: "ㅠㅠ",
+        intro: "책 재목 필요",
+        summary: "",
       });
     }
 
@@ -87,8 +87,8 @@ app.post("/api/summary", async (req, res) => {
   } catch (err) {
     console.error("SUMMARY ERROR:", err);
     res.json({
-      intro: "오류오류오류오류오류오류오류오류오류오류오류오류오류오류오류오류오류오류오류오류오류오류오륭로유로유로유로오류오류오류오류오류오류오류오오로ㅠ오류오류오류ㅗ유로유로유ㅗ류오류오",
-      summary: "아아아ㅏ아아ㅏ아아아아아아아아앙아아아아아아아아아아아아아ㅏ아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏ",
+      intro: "오류",
+      summary: "오류",
     });
   }
 });

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>책 요약 생성기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <h1 class="title">책 요약 생성기</h1>
+
+  <div class="container">
+
+    <label>책 제목</label>
+    <input id="titleInput" placeholder="" />
+
+    <label>언어</label>
+    <select id="lang">
+      <option>한국어</option>
+      <option>영어</option>
+      <option>일본어</option>
+    </select>
+
+    <label>톤</label>
+    <select id="tone">
+      <option>기본</option>
+      <option>친절함</option>
+      <option>간결함</option>
+      <option>재미있게</option>
+    </select>
+
+    <label>요약 문장 수</label>
+    <input id="num" type="number" value="5" />
+
+    <button id="generateBtn">생성하기</button>
+
+    <h2>책 소개</h2>
+    <div id="intro" class="box"></div>
+
+    <h2>요약</h2>
+    <div id="summary" class="box"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

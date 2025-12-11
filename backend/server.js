@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// public 정적 파일 제공
+// public 폴더 제공
 app.use(express.static(path.join(__dirname, "public")));
 
 const openai = new OpenAI({
@@ -23,7 +23,7 @@ const openai = new OpenAI({
 });
 
 // ===============================
-//        SUMMARY API
+//       SUMMARY API
 // ===============================
 app.post("/api/summary", async (req, res) => {
   try {
@@ -33,12 +33,11 @@ app.post("/api/summary", async (req, res) => {
       return res.json({ intro: "", summary: "제목이 없습니다." });
     }
 
-    // 문장 수 최대 70으로 제한
     if (!num || num > 70) num = 70;
 
     const prompt = `
 규칙:
-1) 실존 책이 아니면 "존재하지 않는 책입니다."라고 말하고 끝내기.
+1) 실존 책이 아니면 "존재하지 않는 책입니다." 라고 말하고 끝내기.
 2) 새로운 내용 상상 금지.
 3) 문체: ${tone}
 4) 언어: ${lang}
@@ -74,15 +73,10 @@ app.post("/api/summary", async (req, res) => {
   }
 });
 
-// ===============================
-//     DEFAULT ROUTE
-// ===============================
+// "/" → index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
-// ===============================
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () =>
-  console.log("Server running on port " + PORT)
-);
+app.listen(PORT, () => console.log("Server running on port " + PORT));

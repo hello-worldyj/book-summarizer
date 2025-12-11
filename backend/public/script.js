@@ -1,16 +1,17 @@
-document.getElementById("generateBtn").addEventListener("click", async () => {
+document.getElementById("generateBtn").addEventListener("click", generate);
+
+async function generate() {
   const title = document.getElementById("titleInput").value.trim();
   const lang = document.getElementById("lang").value;
   const tone = document.getElementById("tone").value;
-  const num = document.getElementById("num").value;
+  let num = parseInt(document.getElementById("num").value);
 
-  const intro = document.getElementById("intro");
-  const summary = document.getElementById("summary");
+  if (!title) return alert("책 제목을 입력해주세요.");
 
-  if (!title) return alert("책 제목이 없습니다");
+  if (num > 70) num = 70;
 
-  intro.innerText = "불러오는 중...";
-  summary.innerText = "생성 중...";
+  document.getElementById("intro").innerText = "불러오는 중...";
+  document.getElementById("summary").innerText = "생성 중...";
 
   const res = await fetch("/api/summary", {
     method: "POST",
@@ -20,7 +21,6 @@ document.getElementById("generateBtn").addEventListener("click", async () => {
 
   const data = await res.json();
 
-  intro.innerText = data.intro || "다시 시도 해주십시오";
-  summary.innerText = data.summary || "요약 생성 실패!";
-});
-
+  document.getElementById("intro").innerText = data.intro || "소개 생성 실패";
+  document.getElementById("summary").innerText = data.summary || "요약 생성 실패";
+}

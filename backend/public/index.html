@@ -1,56 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Book Summary</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>책 요약 (Custom Style)</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="card">
+    <h1>책 요약 생성기</h1>
 
-  <div class="container">
-    <h1> Book Summary</h1>
+    <label>책 제목</label>
+    <input id="titleInput" placeholder="책 제목을 입력하세요">
 
-    <div class="input-group">
-      <label>책 제목</label>
-      <input id="titleInput" placeholder="">
-    </div>
+    <label>요약 스타일 (입력 부탁)</label>
+    <input id="styleInput" placeholder="예: '차분하고 간결하게, 감성적 표현은 최소화'">
 
-    <div class="input-group">
-      <label>언어</label>
-      <select id="lang">
-        <option value="한국어" selected>한국어</option>
-        <option value="English">English</option>
-      </select>
-    </div>
-
-    <div class="input-group">
-      <label>문체</label>
-      <select id="tone">
-        <option value="기본 말투" selected>기본 말투</option>
-        <option value="부드럽게">부드럽게</option>
-        <option value="딱딱하게">딱딱하게</option>
-        <option value="재미있게">재미있게</option>
-      </select>
-    </div>
-
-    <div class="input-group">
-      <label>요약 문장 수 (최대 70)</label>
-      <input id="num" type="number" min="1" max="70" value="5">
-    </div>
+    <label>요약 문장 수 (1–70)</label>
+    <input id="num" type="number" value="5" min="1" max="70">
 
     <button id="generateBtn">생성하기</button>
 
-    <div class="resultBox">
-      <h2>소개</h2>
-      <p id="intro"></p>
-    </div>
+    <div class="result">
+      <h2>책 소개</h2>
+      <pre id="intro"></pre>
 
-    <div class="resultBox">
       <h2>요약</h2>
-      <p id="summary"></p>
+      <pre id="summary"></pre>
     </div>
   </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

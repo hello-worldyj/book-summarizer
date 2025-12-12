@@ -155,7 +155,7 @@ app.post("/api/summary", async (req, res) => {
     if (num > 70) num = 70;
 
     if (!titleRaw) {
-      return res.json({ error: "제목을 입력하세요." });
+      return res.json({ error: "제목을 입력하샘." });
     }
 
     // 1) find best matching book via Google Books (auto-correct)
@@ -166,7 +166,7 @@ app.post("/api/summary", async (req, res) => {
       return res.json({
         found: false,
         correctedTitle: null,
-        intro: "❌ 책을 찾을 수 없습니다. 제목을 다시 확인해주세요.",
+        intro: " 오타 확인",
         summary: ""
       });
     }
@@ -220,7 +220,7 @@ Use the same book info and style.
       return res.json({
         found: true,
         correctedTitle: book.title,
-        intro: "요약 생성 실패 (모델 응답 파싱 실패)",
+        intro: "요약 생성 실패!",
         summary: ""
       });
     }
@@ -230,7 +230,7 @@ Use the same book info and style.
       return res.json({
         found: false,
         correctedTitle: parsed.corrected_title || book.title,
-        intro: parsed.intro || "책이 존재하지 않거나 설명 부족합니다.",
+        intro: parsed.intro || "책이 존재하지 않거나 설명 부족.",
         summary: ""
       });
     }
@@ -271,7 +271,7 @@ Respond with only a JSON array of strings.
     // if still not enough, return what we have but mark note
     let finalSummary = sentences.join(" ");
     if (sentences.length < num) {
-      finalSummary += `\n\n※ 요청한 ${num}문장 중 ${sentences.length}문장만 생성되었습니다.`;
+      finalSummary += `\n\n※ 요청한 ${num}문장 중 ${sentences.length}문장만 생성되었습니다 주인님.`;
     }
 
     return res.json({
